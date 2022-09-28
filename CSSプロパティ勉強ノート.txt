@@ -1,0 +1,181 @@
+﻿***********
+*CSS書き方*
+***********
+・CSSファイル一行目で文字コードを指定する。
+@charset "utf-8";
+・HTMLファイルとのリンク(HTML側<haed>領域に記入する。)
+<link rel="stylesheet" href="css/style.css">
+
+******
+*間隔*
+******
+「margin」
+・全方向隣の要素と余白調節
+selector { margin: ○○px; }
+
+・一方向だけ指定(right/left/top/bottom)
+selector { margin-○○: ○○px; }
+
+・上下左右指定省略形
+selector { margin: ○○px ○○px; }「上下」「左右」
+selector { margin: ○○px ○○px ○○px; }「上」「左右」「下」
+selector { margin: ○○px ○○px ○○px ○○px; }「上」「右」「下」「左」
+
+
+「padding」
+・ボーダーと子要素の余白調整
+selector { padding: ○○px }
+
+・一方向だけ指定(right/left/top/bottom)
+selector { padding-○○: ○○px; }
+
+・上下左右指定省略形
+selector { padding: ○○px ○○px; }「上下」「左右」
+selector { padding: ○○px ○○px ○○px; }「上」「左右」「下」
+selector { padding: ○○px ○○px ○○px ○○px; }「上」「右」「下」「左」
+
+・コーディングのコツ
+(親子間)の余白はpadding、隣り合った要素(兄弟間)の余白はmarginを使うようにすると、迷うことがなくなる
+marginはなるべくmargin-topとmargin-leftのみを使う
+
+*****************
+*要素のサイズ変更*
+*****************
+・要素の横幅を変更
+selector { width: ○○px }
+
+・要素の縦幅を変更(デザインが狂うので使わない)
+selector { height: ○○px }
+
+**********
+*ボーダー*
+**********
+・ボーダーで装飾
+selector { border: ○○px solid #色指定 }
+
+・上下左右一方向だけ指定(right/left/top/bottom)
+selector { border-○○: solid ○○px; #色指定 }
+
+・角丸ボーダーで装飾
+selector { border: ○○px solid #色指定 border-radius: ○○px; } 
+
+************************************
+*ブロックレベル要素とインライン要素*
+************************************
+・ブロックレベル要素に切り替える
+selector { display : block; }
+・インライン要素に切り替える
+selector { display : inline; }
+・インラインブロック要素に切り替える
+selector { display: inline-block; }
+
+**********
+*フロート*
+**********
+・floatを使った配置(right/left)
+selector { float: ○○; }
+
+※float配置でレイアウトが崩れたら、floatした子要素の「親要素」に入れるプロパティ※
+・この要素の両側にfloatで回り込みさせない
+selector { clear: both; }
+・この要素の下にある要素の高さを変えない
+selector { overflow: hidden; }
+
+*******************
+*フォント/テキスト*
+*******************
+・フォントサイズを変更
+selector { font-size: ○○px; }
+・フォントを小さくする
+selector { font-size: smaller; }
+・フォントを太文字にする
+selector { font-weight: bold; }
+
+・要素内のテキスト位置の変更(right/left/top/bottom)
+selector { text-aligen: 〇〇; }
+
+・折り返したテキストの上下余白の調整
+selector { line-height: 1.6; }
+
+・斜体をノーマルテキストに戻す
+selector { font-style: normal; }
+
+********
+*リンク*
+********
+・リンク文字の色を指定
+selector { color: #0000ee; }
+・リンク文字の下線を消す
+selector { text-decoration: none; }
+
+******
+*配色*
+******
+・フォントの色を指定
+selector { color: #色指定; }
+・背景色の指定
+selector { background-color: #色指定; }
+
+******
+*画像*
+******
+・画像を背景に指定
+selector { background-image: url(画像パス); }
+
+・画像位置の調整(right/left/top/bottom/middle)
+selector { vertical-align: ○○; }
+
+・画像にぼかしの影を付ける
+selector { box-shadow: 2px 2px 3px rgba(0,0,0,0.1); }
+
+
+**********
+*中央配置*
+**********
+・ヘッダーやwrapperを中央配置してページ全体のサイズを決める
+ブラウザ全域1366px
+←auto→←980px→←auto→
+header/wrapper { width: 980px; margin: 0 auto; }
+
+・要素を中央配置
+selector {margin: 0 auto;}
+
+・テキストをブロック要素中央へ配置
+selector text-align: center;
+
+*****************
+*リスト・テーブル*
+*****************
+・リストの行頭アイコンを消す
+selector { list-style: none; }
+
+・テーブル<th><td>をセルにする、テーブル親要素に設定
+selector { 
+width: 〇〇%;
+border-collapse: collapse;
+}
+・テーブルセルに罫線を掛ける
+selector th, selector td { border: 〇〇px solid #色指定 padding: 〇〇px }
+
+************
+*疑似クラス*
+************
+・訪問後のリンク文字の色変える
+selector:visited { color: #色指定; }
+・マウスオンでリンク文字の色変える
+selector:hover { color: #色指定; }
+・マウスオンでリンク画像の明度を変える
+selector:hover { opacity: 0.7; }
+・最後の要素にボーダーを加える
+selector:last-child { border^right: solid 1px #色指定; }
+
+※パンくずリスト用※
+・テキスト間に記号を後付けする
+selector { content: "記号"; }
+・最後の要素の記号を消す
+selector:last-child::after { content: none; }
+
+※画像リスト用※
+・任意の数のliを選び、装飾する(〇n)の箇所に数字を入れる
+selector ul li:nth-child(〇n) { margin-right: 0; }
+
