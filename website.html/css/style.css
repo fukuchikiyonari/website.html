@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 /* 共通部分CSS */
-
 body {
 margin: 0;
 padding: 0 ;
@@ -225,7 +224,6 @@ footer small {
 
 
 /* indexCSS */
-
 #main_visual {
     width: 980px;
     height: 440px;
@@ -263,12 +261,10 @@ footer small {
     margin-left: 8em;
     margin-bottom: 10px;
 }
-
 /* indexCSS終 */
 
 
 /* courseCSS */
-
 #course table {
     width: 100%;
     border-collapse: collapse;
@@ -285,12 +281,10 @@ footer small {
     text-align: left;
     width: 5em;
 }
-
 /* courseCSS 終*/
 
 
 /* galleryCSS */
-
 #gallery ul {
     list-style: none;
     margin: 0;
@@ -312,12 +306,10 @@ footer small {
 #gallery ul li:nth-child(3n) {
     margin-right: 0;
 }
-
 /* galleryCSS 終*/
 
 
 /* contactCSS */
-
 #entry {
     width: 980px;
     padding: 0 auto;
